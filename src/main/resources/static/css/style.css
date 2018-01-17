@@ -264,19 +264,26 @@ nav {
 }
 
 
-.content .form_response{
-  color: #ffffcc;
+.content .form_settings .invisible{
+  display: none;
+}
+
+.content .form_settings{
+  color: #000000;
   text-align: center;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
 }
 
-.form_response .approve {
+
+.form_settings .approve {
   background: #008000;
+  color: #ffffcc;
 }
 
-.form_response .refuse {
+.form_settings .refuse {
   background: #ff0000;
+  color: #ffffcc;
 }
 
 .content ul { 

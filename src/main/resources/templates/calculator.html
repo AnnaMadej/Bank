@@ -76,33 +76,16 @@
         </div> -->
       </div>
       <div class="content">
-        <h1>Kalkulator kredytowy</h1>
-          <div class="form_response" th:if="${possibleInstallments!=0 and possibleInstallments!=null and requestedInstallments>=possibleInstallments}">
-              <p class="approve">KREDYT PRZYDZIELONY!</p>
-          </div>
-          <div class="form_response" th:if="${possibleInstallments>requestedInstallments or possibleInstallments==0}">
-              <p class="refuse"> NIE PRZYDZIELONO KREDYTU! </p>
-          </div>
-        <div class="form_response" th:if="${possibleInstallments>requestedInstallments}">
-          <p class="refuse"> Spróbuj z inną ilością rat </p>
-        </div>
-        <div class="form_response" th:if="${possibleInstallments==0}">
-        <p class="refuse"> Twoje przychody są zbyt małe!  </p>
-      </div>
-
-
-
-
-          <div th:if="${possibleInstallments ==null or possibleInstallments>requestedInstallments or possibleInstallments==0 }">
-        <form id="contact" th:action="@{/calculator}" method="post">
-        <div class="form_settings">
-          <p><span>Miesięczne przychody: </span><input class="contact" min="100" type="number" step="0.01"  name="income" placeholder="wpisz swoje miesięczne zarobki" required="true" th:value="${income}"/></p>
-          <p><span>Kwota kredytu: </span><input class="contact" min="10"  type="number"  step="0.01" name="amount" placeholder="wpisz kwotę, jaką chcesz otrzymać" required="true" th:value="${amount}"/></p>
-          <p><span>Ilość rat: </span><input class="contact" type="number" name="numberOfInstallments" placeholder="wpisz ilość rat" required="true" th:value="${possibleInstallments}"/></p>
+          <div class="form_settings">
+          <h1>Kalkulator kredytowy</h1>
+          <p th:text="${creditResponseModel.getResponse()}" th:class="${creditResponseModel.getInfoClass()}"></p>
+          <form id="contact" method="post" th:action="@{/calculator}" th:object="${creditQueryForm}" th:if="${creditResponseModel.getInfoClass()!='approve'}">
+          <p><span>Miesięczne przychody: </span><input class="contact" min="100" type="number" step="0.01"  name="income" placeholder="wpisz swoje miesięczne zarobki" required="true" th:field="*{income}"/></p>
+          <p><span>Kwota kredytu: </span><input class="contact" min="10"  type="number"  step="0.01" name="amount" placeholder="wpisz kwotę, jaką chcesz otrzymać" required="true" th:field="*{amount}"/></p>
+          <p><span>Ilość rat: </span><input class="contact" type="number" name="numberOfInstallments" placeholder="wpisz ilość rat" required="true" th:field="*{numberOfInstallments}"/></p>
           <p><input type="submit" class="submit"/></p>
         </div>
         </form>
-        </div>
       </div>
     </div>
     <div id="scroll">

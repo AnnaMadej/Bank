@@ -1,14 +1,14 @@
-package com.aniamadej.bank.Models;
+package com.aniamadej.bank.Models.Forms;
 
-public class CreditQueryModel {
+public class CreditQueryForm {
     private double amount;
     private double income;
     private int numberOfInstallments;
 
-    public CreditQueryModel() {
+    public CreditQueryForm() {
     }
 
-    public CreditQueryModel(double amount, double income, int numberOfInstallments) {
+    public CreditQueryForm(double amount, double income, int numberOfInstallments) {
         this.amount = amount;
         this.income = income;
         this.numberOfInstallments = numberOfInstallments;
@@ -38,10 +38,4 @@ public class CreditQueryModel {
         this.numberOfInstallments = numberOfInstallments;
     }
 
-    public int calculatePossibleInstallments(){
-        if (this.getIncome()==0) return 0;
-        double possibleInstallments = this.getAmount()/this.getIncome();
-        if (possibleInstallments != (int)possibleInstallments) possibleInstallments +=1;
-        return (int)possibleInstallments;
-    }
 }
