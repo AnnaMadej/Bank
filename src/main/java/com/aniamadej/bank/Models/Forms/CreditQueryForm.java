@@ -33,7 +33,6 @@ public class CreditQueryForm {
     public int getNumberOfInstallments() {
         return numberOfInstallments;
     }
-
     public void setNumberOfInstallments(int numberOfInstallments) {
         this.numberOfInstallments = numberOfInstallments;
     }
