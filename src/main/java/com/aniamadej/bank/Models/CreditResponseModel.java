@@ -3,11 +3,10 @@ package com.aniamadej.bank.Models;
 import com.aniamadej.bank.Models.Forms.CreditQueryForm;
 
 public class CreditResponseModel {
-    CreditQueryForm form;
-
-    int possibleInstallments;
-    String response;
-    String infoClass;
+    private CreditQueryForm form;
+    private int possibleInstallments;
+    private String response;
+    private String infoClass;
 
     public CreditResponseModel(){
         this.infoClass = "invisible";
@@ -60,7 +59,5 @@ public class CreditResponseModel {
         return possibleInstallments;
     }
 
-    public void setPossibleInstallments(int possibleInstallments) {
-        this.possibleInstallments = possibleInstallments;
-    }
+
 }
